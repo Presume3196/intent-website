@@ -1,0 +1,538 @@
+/*! HTML5 Boilerplate v8.0.0 | MIT License | https://html5boilerplate.com/ */
+
+/* main.css 3.0.0 | MIT License | https://github.com/h5bp/main.css#readme */
+/*
+ * What follows is the result of much research on cross-browser styling.
+ * Credit left inline and big thanks to Nicolas Gallagher, Jonathan Neal,
+ * Kroc Camen, and the H5BP dev community and team.
+ */
+
+/* ==========================================================================
+   Base styles: opinionated defaults
+   ========================================================================== */
+
+html {
+  color: var(--foreground);
+  background-color: var(--background);
+  font-size: 1em;
+  line-height: 1.4;
+  font-family: Helvetica, Arial, sans-serif;
+  font-weight: 300;
+  scroll-behavior: smooth;
+}
+
+/*
+ * Remove text-shadow in selection highlight:
+ * https://twitter.com/miketaylr/status/12228805301
+ *
+ * Customize the background color to match your design.
+ */
+
+::-moz-selection {
+  background: #b3d4fc;
+  text-shadow: none;
+}
+
+::selection {
+  background: #b3d4fc;
+  text-shadow: none;
+}
+
+/*
+ * Remove the gap between audio, canvas, iframes,
+ * images, videos and the bottom of their containers:
+ * https://github.com/h5bp/html5-boilerplate/issues/440
+ */
+
+audio,
+canvas,
+iframe,
+img,
+svg,
+video {
+  vertical-align: middle;
+}
+
+/*
+ * Remove default fieldset styles.
+ */
+
+fieldset {
+  border: 0;
+  margin: 0;
+  padding: 0;
+}
+
+/*
+ * Allow only vertical resizing of textareas.
+ */
+
+textarea {
+  resize: vertical;
+}
+
+/* ==========================================================================
+   Author's custom styles
+   ========================================================================== */
+
+
+:root {
+  --foreground: #fff;
+  --background: #222;
+  --accent: #ffea00;
+
+  --hamburger-bar-width: 40px;
+  --hamburger-bar-height: 4px;
+  --hamburger-gap: 6px;
+  --hamburger-padding: 25px;
+  --hamburger-animation: 200ms ease-in-out;
+  --hamburger-icon-height: calc(var(--hamburger-bar-height) * 3 + var(--hamburger-gap) * 2);
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  background-color: var(--background);
+  padding: 0;
+  position: sticky;
+  width: 100%;
+  top: 0;
+  z-index: 100;
+  filter: drop-shadow(0px 5px 10px #00000068);
+}
+
+nav .logo {
+  color: var(--foreground);
+  font-size: 1.5rem;
+  font-weight: bold;
+  text-decoration: none;
+  margin-left: 2rem;
+  padding: 0.4em 0;
+}
+
+nav ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0 2em 0 0;
+}
+
+nav li {
+  display:inline-block;
+  font-size: 1.1rem;
+}
+
+nav li a {
+  display:block;
+  color: var(--foreground);
+  text-decoration: none;
+  padding: 1.5em 1em;
+  border-bottom: 3px solid #0000;
+}
+
+nav li a:hover,
+nav li a:active {
+  border-bottom: 3px solid var(--accent);
+  background-color: #111;
+}
+
+.hamburger-menu {
+  --x-width: calc(var(--hamburger-icon-height) * 1.41421356237);
+  display: none;
+  flex-direction: column;
+  gap: var(--hamburger-gap);
+  padding: var(--hamburger-padding);
+  width: max-content;
+  position: absolute;
+  top: 0;
+  right: 0;
+  cursor: pointer;
+}
+
+.hamburger-menu::before,
+.hamburger-menu input,
+.hamburger-menu::after {
+  content: "";
+  width: var(--hamburger-bar-width);
+  height: var(--hamburger-bar-height);
+  background-color: var(--foreground);
+  border-radius: 999px;
+  transform-origin: left center;
+  transition: opacity var(--hamburger-animation), width var(--hamburger-animation), translate var(--hamburger-animation), rotate var(--hamburger-animation);
+}
+
+.hamburger-menu input {
+  appearance: none;
+  padding: 0;
+  margin: 0;
+  outline: none;
+  pointer-events: none;
+}
+
+.hamburger-menu:has(input:checked)::before {
+  rotate: 45deg;
+  width: var(--x-width);
+  translate: 0 calc(var(--hamburger-bar-height) / -2);
+}
+
+.hamburger-menu:has(input:checked)::after {
+  rotate: -45deg;
+  width: var(--x-width);
+  translate: 0 calc(var(--hamburger-bar-height) / 2);
+}
+
+.hamburger-menu input:checked {
+  opacity: 0;
+  width: 0;
+}
+
+.section-wrap {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 1em;
+
+}
+
+.columns {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.one-third,
+.two-thirds,
+.half {
+  padding: 10px;
+  box-sizing: border-box;
+}
+
+.one-third {
+  width: 33.33%;
+  max-height: auto;
+  object-fit: contain;
+}
+
+.two-thirds {
+  width: 66.67%;
+  max-height: auto;
+  object-fit: contain;
+}
+
+.half {
+  width: 50%;
+  max-height: auto;
+  object-fit: contain;
+}
+
+.center {
+  margin: 0 auto;
+}
+
+#home {
+  background: linear-gradient(
+    rgba(0, 0, 0, 0.3), 
+    rgba(0, 0, 0, 0.3)
+  ),
+  url("/public/img/hero-image.jpg") no-repeat center center;
+  background-size: cover;
+  font-size: 20px;
+  border-bottom: 1px solid var(--accent);
+  cursor:default;
+}
+
+#home h1 {
+  margin: 0;
+  letter-spacing: 0.2em;
+  padding-top: 50px;
+  font-size: 80px;
+}
+
+#home h1 em {
+  color: var(--accent);
+  font-style: italic;
+  font-weight: 400;
+  letter-spacing: 0.1em;
+}
+
+#home a {
+  display: block;
+  width:fit-content;
+  padding: 1em 2em;
+  margin: 50px 0;
+  border-radius: 999px;
+  background-color: var(--accent);
+  text-decoration: none;
+  color: var(--background);
+}
+
+form {
+  margin: 0 auto;
+  border-radius: 30px;
+}
+
+.section-wrap label {
+  display: block;
+  margin-top: 15px;
+  font-size: 20px;
+}
+
+#meet h1,
+#about h1,
+#services h1,
+#contact h1 {
+  font-weight: 300;
+  font-size: 40px;
+  margin: 0;
+}
+
+.highlight {
+  color: var(--accent);
+}
+
+input[type="text"],
+input[type="email"],
+textarea {
+  box-sizing: border-box;
+  width: 100%;
+  padding: 1em;
+  margin-top: 5px;
+  background-color: rgba(255, 255, 255, 0.9);
+  border: none;
+  border-radius: 15px;
+  color: black;
+}
+
+input[type="submit"] {
+  display: block;
+  margin-top: 15px;
+  padding: 20px;
+  background-color: yellow;
+  border: none;
+  border-radius: 30px;
+  color: black;
+  cursor: pointer;
+  width: 100%;
+}
+
+textarea {
+  resize: none;
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus,
+textarea:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px yellow;
+}
+
+input[type="submit"]:hover {
+  background-color: var(--accent);
+}
+
+footer {
+  background:#111;
+  padding: 2em;
+  color:#8d8d8d;
+  text-align: center;
+  margin-top: 2em;
+  border-top: 1px solid var(--accent);
+}
+
+@media screen and (max-width: 768px) {
+  nav ul {
+    margin-top: 0;
+    position: fixed;
+    top: calc(var(--hamburger-icon-height) + 1.9 * var(--hamburger-padding));
+    left: 100%;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    background-color: var(--background);
+    padding: 0;
+    transition: left 0.3s;
+  }
+
+  nav ul li {
+    display:block;
+  }
+
+  .hamburger-menu {
+    display: flex;
+  }
+
+  .hamburger-menu:has(input:checked) ~ ul {
+    left: 0;
+  }
+
+  .one-third,
+  .two-thirds,
+  .half {
+    width: 100%;
+  }
+
+  .become-first {
+    order: -1;
+  }
+}
+
+
+
+/* ==========================================================================
+   Helper classes
+   ========================================================================== */
+
+/*
+ * Hide visually and from screen readers
+ */
+
+.hidden,
+[hidden] {
+  display: none !important;
+}
+
+/*
+ * Hide only visually, but have it available for screen readers:
+ * https://snook.ca/archives/html_and_css/hiding-content-for-accessibility
+ *
+ * 1. For long content, line feeds are not interpreted as spaces and small width
+ *    causes content to wrap 1 word per line:
+ *    https://medium.com/@jessebeach/beware-smushed-off-screen-accessible-text-5952a4c2cbfe
+ */
+
+.visually-hidden {
+  border: 0;
+  clip: rect(0, 0, 0, 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+  /* 1 */
+}
+
+/*
+ * Extends the .visually-hidden class to allow the element
+ * to be focusable when navigated to via the keyboard:
+ * https://www.drupal.org/node/897638
+ */
+
+.visually-hidden.focusable:active,
+.visually-hidden.focusable:focus {
+  clip: auto;
+  height: auto;
+  margin: 0;
+  overflow: visible;
+  position: static;
+  white-space: inherit;
+  width: auto;
+}
+
+/*
+ * Hide visually and from screen readers, but maintain layout
+ */
+
+.invisible {
+  visibility: hidden;
+}
+
+/*
+ * Clearfix: contain floats
+ *
+ * The use of `table` rather than `block` is only necessary if using
+ * `::before` to contain the top-margins of child elements.
+ */
+
+.clearfix::before,
+.clearfix::after {
+  content: "";
+  display: table;
+}
+
+.clearfix::after {
+  clear: both;
+}
+
+/* ==========================================================================
+   EXAMPLE Media Queries for Responsive Design.
+   These examples override the primary ('mobile first') styles.
+   Modify as content requires.
+   ========================================================================== */
+
+@media only screen and (min-width: 35em) {
+  /* Style adjustments for viewports that meet the condition */
+}
+
+@media print,
+  (-webkit-min-device-pixel-ratio: 1.25),
+  (min-resolution: 1.25dppx),
+  (min-resolution: 120dpi) {
+  /* Style adjustments for high resolution devices */
+}
+
+/* ==========================================================================
+   Print styles.
+   Inlined to avoid the additional HTTP request:
+   https://www.phpied.com/delay-loading-your-print-css/
+   ========================================================================== */
+
+@media print {
+  *,
+  *::before,
+  *::after {
+    background: #fff !important;
+    color: #000 !important;
+    /* Black prints faster */
+    box-shadow: none !important;
+    text-shadow: none !important;
+  }
+
+  a,
+  a:visited {
+    text-decoration: underline;
+  }
+
+  a[href]::after {
+    content: " (" attr(href) ")";
+  }
+
+  abbr[title]::after {
+    content: " (" attr(title) ")";
+  }
+
+  /*
+   * Don't show links that are fragment identifiers,
+   * or use the `javascript:` pseudo protocol
+   */
+  a[href^="#"]::after,
+  a[href^="javascript:"]::after {
+    content: "";
+  }
+
+  pre {
+    white-space: pre-wrap !important;
+  }
+
+  pre,
+  blockquote {
+    border: 1px solid #999;
+    page-break-inside: avoid;
+  }
+
+  tr,
+  img {
+    page-break-inside: avoid;
+  }
+
+  p,
+  h2,
+  h3 {
+    orphans: 3;
+    widows: 3;
+  }
+
+  h2,
+  h3 {
+    page-break-after: avoid;
+  }
+}
+
