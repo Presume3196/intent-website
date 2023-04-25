@@ -211,6 +211,7 @@ nav li a:active {
 }
 
 .two-thirds {
+  padding-top: 4em;
   width: 66.67%;
   max-height: auto;
   object-fit: contain;
@@ -226,12 +227,17 @@ nav li a:active {
   margin: 0 auto;
 }
 
+.round-corners {
+  width:100%;
+  border-radius: 10px;
+}
+
 #home {
   background: linear-gradient(
     rgba(0, 0, 0, 0.3), 
     rgba(0, 0, 0, 0.3)
   ),
-  url("/public/img/hero-image.jpg") no-repeat center center;
+  url("/docs/img/IMG_1980.jpg") no-repeat center center;
   background-size: cover;
   font-size: 20px;
   border-bottom: 1px solid var(--accent);
@@ -336,7 +342,31 @@ footer {
   border-top: 1px solid var(--accent);
 }
 
+footer a {
+  color:#8d8d8d;
+}
+
+@media screen and (max-width: 1150px) {
+  .two-thirds {
+    padding-top: 0;
+  }
+}
+
 @media screen and (max-width: 768px) {
+  #home h1 {
+    font-size: 50px;
+  }
+
+
+  nav .logo {
+    height:50px;
+    margin-left:5px;
+  }
+
+  .calendly-inline-widget {
+    margin-top: 15px;
+  }
+
   nav ul {
     margin-top: 0;
     position: fixed;
