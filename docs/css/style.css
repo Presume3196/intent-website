@@ -237,7 +237,7 @@ nav li a:active {
     rgba(0, 0, 0, 0.3), 
     rgba(0, 0, 0, 0.3)
   ),
-  url("/docs/img/IMG_1980.jpg") no-repeat center center;
+  url("/img/IMG_1980.jpg") no-repeat center center;
   background-size: cover;
   font-size: 20px;
   border-bottom: 1px solid var(--accent);
